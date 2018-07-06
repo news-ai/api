@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="NewsAI is a news intelligence platform for public relations professionals to streamline the process of monitoring news, finding influencers, and building media lists for their clients.">
+    <meta name="keywords" content="Public Relations, News Intelligence, News, Artificial Intelligence, News Artificial Intelligence">
+    <meta name="author" content="NewsAI">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:url" content="https://newsai.co/" />
+    <meta property="og:title" content="NewsAI" />
+    <meta property="og:description" content="NewsAI is a news intelligence platform for public relations professionals to streamline the process of monitoring news, finding influencers, and building media lists for their clients. " />
+
+    <title>NewsAI - Registration</title>
+
+    <link rel="icon" href="https://www.newsai.co/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.newsai.co/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.newsai.co/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.newsai.co/images/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/elegant-icons/style.css">
+    <link rel="stylesheet" href="/static/assets/app-icons/styles.css">
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/newsai.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ur8dbk9e';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body class="grey-bg">
+    <section class="app-brief grey-bg" id="pricing">
+        <div class="container">
+            <form role="form" method="post" action="userregister" class="registrationbox" data-parsley-validate>
+                {{ .csrfField }}
+                <h2>NewsAI <small>Tabulae</small></h2>
+                <h3>Start your free 7-day trial of NewsAI!</h3>
+                <hr class="colorgraph">
+                <a href="https://tabulae.newsai.org/api/auth/google?next=https://tabulae.newsai.co/" class="btn btn-primary btn-block btn-lg">Sign up with Google</a>
+                <br>
+                <p>OR</p>
+                <br>
+                <div class="alert alert-danger" role="alert" id="alertBox" style="display:none">
+                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                  <span class="sr-only">Error:</span> <span id="errorMessage"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Your Email Address" tabindex="1" type="email" data-parsley-type="email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Your Password" tabindex="2" data-parsley-minlength="1" data-parsley-errors-container=".errorspannewpassinput" data-parsley-required-message="Please enter your new password." data-parsley-pattern="(?=.*[a-z])(?=.*[A-Z]).*" data-parsley-pattern-message="Your password must contain at least (1) lowercase and (1) uppercase letter." data-parsley-required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="firstname" id="first_name" class="form-control input-lg" placeholder="Your First Name" tabindex="3" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="couponcode" id="coupon_code" class="form-control input-lg" placeholder="Coupon Code" tabindex="4">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="invitationcode" style="display: none;" id="invitation_code" class="form-control input-lg" placeholder="Invitation Code" tabindex="5">
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3">
+                        <span class="button-checkbox">
+                            <button type="button" class="btn" data-color="info" tabindex="6">I Agree</button>
+                            <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1" required>
+                        </span>
+                    </div>
+                    <div class="col-xs-8 col-sm-9 col-md-9">
+                         By clicking <strong class="label label-primary">Start My Trial</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 col-md-3">
+                        <div tabindex="7" class="g-recaptcha" name="recaptcha" id="recaptcha" data-sitekey="6Ld7pigTAAAAAG9hKcodbx5qxI7CHNo46uKSVLCL"></div>
+                    </div>
+                </div>
+                <hr class="colorgraph">
+                <div class="row">
+                    <div style="max-width: 50%; margin: 0 auto;"><input id="registrationButton" type="submit" style="background-color: #428bca; border-color: #428bca;" value="Start my trial" class="btn btn-primary btn-block btn-lg" tabindex="8"></div>
+                </div>
+            </form>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+                    </div>
+                    <div class="modal-body">
+                    <p>1. Terms</p>
+
+                    <p>By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.</p>
+
+                    <p>2. Use License</p>
+
+                    <p>Permission is granted to temporarily download one copy of the materials (information or software) on NewsAI's web site for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                    modify or copy the materials;
+                    use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</p>
+                    <p>attempt to decompile or reverse engineer any software contained on NewsAI's web site;
+                    remove any copyright or other proprietary notations from the materials; or
+                    transfer the materials to another person or "mirror" the materials on any other server.</p>
+                    <p>This license shall automatically terminate if you violate any of these restrictions and may be terminated by NewsAI at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</p>
+
+                    <p>3. Disclaimer</p>
+
+                    <p>The materials on NewsAI's web site are provided "as is". NewsAI makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights. Further, NewsAI does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its Internet web site or otherwise relating to such materials or on any sites linked to this site.</p>
+                    
+                    <p>4. Limitations</p>
+
+                    <p>In no event shall NewsAI or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on NewsAI's Internet site, even if NewsAI or a NewsAI authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.</p>
+
+                    <p>5. Revisions and Errata</p>
+
+                    <p>The materials appearing on NewsAI's web site could include technical, typographical, or photographic errors. NewsAI does not warrant that any of the materials on its web site are accurate, complete, or current. NewsAI may make changes to the materials contained on its web site at any time without notice. NewsAI does not, however, make any commitment to update the materials.</p>
+
+                    <p>6. Links</p>
+
+                    <p>NewsAI has not reviewed all of the sites linked to its Internet web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by NewsAI of the site. Use of any such linked web site is at the user's own risk.</p>
+
+                    <p>7. Site Terms of Use Modifications
+
+                    <p>NewsAI may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.</p>
+
+                    <p>8. Governing Law</p>
+
+                    <p>Any claim relating to NewsAI's web site shall be governed by the laws of the State of New York without regard to its conflict of law provisions.</p>
+
+                    <p>General Terms and Conditions applicable to Use of a Web Site.</p>
+
+                    <h4 class="modal-title">Privacy Policy</h4><br>
+
+                    <p>Your privacy is very important to us. Accordingly, we have developed this Policy in order for you to understand how we collect, use, communicate and disclose and make use of personal information. The following outlines our privacy policy.</p>
+
+                    <p>Before or at the time of collecting personal information, we will identify the purposes for which information is being collected.</p>
+
+                    <p>We will collect and use of personal information solely with the objective of fulfilling those purposes specified by us and for other compatible purposes, unless we obtain the consent of the individual concerned or as required by law.</p>
+                    <p>We will only retain personal information as long as necessary for the fulfillment of those purposes.</p>
+                    <p>We will collect personal information by lawful and fair means and, where appropriate, with the knowledge or consent of the individual concerned.</p>
+                    <p>Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date.</p>
+                    <p>We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
+                    <p>We will make readily available to customers information about our policies and practices relating to the management of personal information.</p>
+                    <p>We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </section>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.newsai.co/js/newsai.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/parsley.js/2.4.4/parsley.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/register.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77059806-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script type="text/javascript">
+    </script>
+</body>
+</html>

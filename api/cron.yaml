@@ -1,0 +1,21 @@
+cron:
+- description: "expired session removal job"
+  url: /tasks/removeExpiredSessions
+  schedule: every 1 hours
+  target: default
+- description: "imported files removal job"
+  url: /tasks/removeImportedFiles
+  schedule: every day 04:00
+  target: default
+- description: "remove expired users"
+  url: /tasks/makeUsersInactive
+  schedule: every 12 hours
+  target: default
+- description: "refresh user live tokens"
+  url: /tasks/refreshUserLiveTokens
+  schedule: every 6 hours
+  target: default
+- description: My Daily Backup
+  url: /_ah/datastore_admin/backup.create?kind=Agency&kind=Billing&kind=Contact&kind=Email&kind=Feed&kind=File&kind=MediaList&kind=Publication&kind=Session&kind=Team&kind=Template&kind=User&kind=UserInviteCode&filesystem=gs&gs_bucket_name=tabulae_backups
+  schedule: every 48 hours
+  target: ah-builtin-python-bundle

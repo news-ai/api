@@ -1,0 +1,21 @@
+application: newsai-1166
+version: dev
+runtime: go
+api_version: go1
+module: default
+
+handlers:
+- url: /tasks/removeExpiredSessions
+  script: _go_app
+  login: admin
+- url: /static
+  static_dir: static
+- url: /favicon.ico
+  static_files: static/favicon.png
+  upload: static/favicon.png
+- url: /.*
+  script: _go_app
+  secure: always
+
+env_variables:
+  BASE_URL: 'https://dev-dot-newsai-1166.appspot.com'

@@ -1,0 +1,237 @@
+indexes:
+
+- kind: Template
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: Created
+
+- kind: Template
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: Created
+      direction: desc
+
+- kind: Email
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: Created
+
+- kind: Email
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: Created
+      direction: desc
+
+- kind: MediaList
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: Created
+
+- kind: MediaList
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: Created
+      direction: desc
+
+- kind: MediaList
+  ancestor: no
+  properties:
+    - name: Archived
+    - name: Created
+      direction: desc
+
+- kind: Contact
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: IsMasterContact
+    - name: Created
+
+- kind: Contact
+  ancestor: no
+  properties:
+    - name: CreatedBy
+    - name: IsMasterContact
+    - name: Created
+      direction: desc
+
+- kind: MediaList
+  ancestor: no
+  properties:
+    - name: PublicList 
+    - name: Created
+      direction: desc
+
+- kind: MediaList
+  ancestor: no
+  properties:
+    - name: PublicList 
+    - name: Created
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: Delievered
+    - name: IsSent
+    - name: SendAt
+
+- kind: MediaList
+  properties:
+    - name: TeamId
+    - name: Created
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: CreatedBy
+    - name: SendAt
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: SendAt
+
+- kind: Email
+  properties:
+    - name: IsSent
+    - name: SendAt
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: IsSent
+    - name: Created
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: IsSent
+    - name: Created
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: CreatedBy
+    - name: IsSent
+    - name: SendAt
+    - name: Created
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: CreatedBy
+    - name: IsSent
+    - name: SendAt
+      direction: desc
+    - name: Created
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: Delievered
+    - name: Created
+      direction: desc
+
+- kind: Email
+  properties:
+  - name: ContactId
+  - name: Created
+    direction: desc
+
+- kind: Email
+  properties:
+  - name: IsSent
+  - name: Created
+    direction: desc
+
+- kind: Email
+  properties:
+  - name: Archived
+  - name: SendAt
+
+- kind: Email
+  properties:
+  - name: Archived
+  - name: Created
+    direction: desc
+
+- kind: Email
+  properties:
+    - name: Cancel
+    - name: CreatedBy
+    - name: IsSent
+    - name: SendAt
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: Method
+    - name: Created
+      direction: desc
+
+- kind: Template
+  properties:
+    - name: Archived
+    - name: Created
+      direction: desc
+
+- kind: MediaList
+  properties:
+    - name: IsDeleted
+    - name: Created
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: To
+    - name: Created
+      direction: desc
+
+- kind: MediaList
+  properties:
+    - name: Archived
+    - name: CreatedBy
+    - name: PublicList
+    - name: Name
+
+- kind: MediaList
+  properties:
+    - name: Archived
+    - name: CreatedBy
+    - name: PublicList
+    - name: Name
+      direction: desc
+
+- kind: MediaList
+  properties:
+    - name: Archived
+    - name: CreatedBy
+    - name: PublicList
+    - name: Updated
+
+- kind: MediaList
+  properties:
+    - name: Archived
+    - name: CreatedBy
+    - name: PublicList
+    - name: Updated
+      direction: desc
+
+- kind: Email
+  properties:
+    - name: GmailId
+    - name: SendGridId
+    - name: SendAt
+
+- kind: MediaList
+  properties:
+    - name: Archived
+    - name: Created

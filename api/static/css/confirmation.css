@@ -1,0 +1,20 @@
+.demo-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 50px auto;
+}
+
+#payment-form {
+    margin: 30px;
+}
+
+#payment-form input {
+    width: 200px;
+    margin: 10px auto;
+    display: block;
+}
+
+.coupon-button {
+    width: 100%;
+    max-width: 350px;
+}

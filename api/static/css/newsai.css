@@ -1,0 +1,150 @@
+#top {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.header_top {
+    height: 100px;
+    text-align: left;
+}
+
+.color-overlay {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.standard-button {
+    background-color: #032466;
+}
+
+.standard-button2 {
+    background-color: #032466;
+}
+
+.standard-button2:hover {
+    background-color: #032466;
+}
+
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open .dropdown-toggle.btn-primary {
+    background: #445671;
+    border-color: inherit;
+}
+
+.colored-line,
+.colored-line-left {
+    background: #6b798f;
+}
+
+.main-color {
+    color: #6b798f;
+}
+
+.color-bg {
+    background: #6b798f;
+    color: #FFFFFF;
+}
+
+.features .feature:hover .icon-container .icon {
+    background: #6b798f;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    -webkit-box-shadow: 0px 0px 0px 2px #6b798f;
+            box-shadow: 0px 0px 0px 2px #6b798f;
+}
+
+.features .feature .icon-container .icon {
+    border: 1px solid #6b798f;
+    color: #6b798f;
+}
+
+.feature-list li i {
+    color: #6b798f;
+}
+
+.services .single-service .service-icon,
+.services .single-service h3 {
+    color: #6b798f;
+}
+
+.screenshots .owl-theme .owl-controls .owl-page span {
+    background: #6b798f;
+}
+
+footer .contact-button {
+    border: 2px solid #6b798f;
+    color: #6b798f;
+}
+
+footer .contact-button:hover {
+    background: #6b798f;
+}
+
+footer .contact-box .expanded-contact-form .input-box:active,
+footer .contact-box .expanded-contact-form .textarea-box:active,
+footer .contact-box .expanded-contact-form .input-box:focus,
+footer .contact-box .expanded-contact-form .textarea-box:focus {
+    border: 1px solid #6b798f;
+}
+
+footer .social-icons li a:hover {
+    color: #6b798f;
+}
+
+#mc_embed_signup .button {
+    clear: both;
+    background-color: #aaa;
+    border: 0 none;
+    border-radius: 4px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    /*margin: 10px 0px 10px 0;*/
+    /*padding: 0 22px;*/
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    /*width: auto;*/
+}
+#mc_embed_signup .mc-field-group input {
+    /*display: block;*/
+    /*width: 100%;*/
+    /*padding: 8px 0;*/
+    text-indent: 2%;
+}
+#mc_embed_signup input.mce_inline_error {
+    border-color: #6B0505;
+}
+#mc_embed_signup input {
+    border: 1px solid #999;
+    -webkit-appearance: none;
+}
+#mc_embed_signup .mc-field-group label {
+    display: block;
+    margin-bottom: 3px;
+}
+#mc-embedded-subscribe{
+    display: inline-block;
+    width: 40%;
+    margin: 0;
+    padding: 0;
+}
+
+#mce-EMAIL{
+    padding: 8px 0;
+    display: inline-block;
+    width: 50%;
+}
+
+#top {
+    text-align: left;
+    position: fixed;
+    padding-left: 15px;
+    padding-top: 15px;
+}

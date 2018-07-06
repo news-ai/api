@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="NewsAI is a news intelligence platform for public relations professionals to streamline the process of monitoring news, finding influencers, and building media lists for their clients.">
+    <meta name="keywords" content="Public Relations, News Intelligence, News, Artificial Intelligence, News Artificial Intelligence">
+    <meta name="author" content="NewsAI">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:url" content="https://newsai.co/" />
+    <meta property="og:title" content="NewsAI" />
+    <meta property="og:description" content="NewsAI is a news intelligence platform for public relations professionals to streamline the process of monitoring news, finding influencers, and building media lists for their clients. " />
+
+    <title>NewsAI - Payments</title>
+
+    <link rel="icon" href="https://www.newsai.co/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.newsai.co/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.newsai.co/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.newsai.co/images/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/elegant-icons/style.css">
+    <link rel="stylesheet" href="/static/assets/app-icons/styles.css">
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/newsai.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/card.css">
+
+    <style type="text/css">
+        * {
+          border-radius: 0 !important;
+        }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ur8dbk9e';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+</head>
+
+<body>
+    <div id="top">
+        <a href="https://tabulae.newsai.co/">Go back to Tabulae</a>
+    </div>
+    <section class="app-brief" id="brief1">
+        <div class="col-md-12 text-center app-brief-pick">
+            <ul class="nav nav-pills center-pills">
+                <li role="presentation" id="social-sync-button"><a href="/api/billing">Billing home</a></li>
+                <li role="presentation" id="social-sync-button"><a href="/api/billing/payment-methods">Credit card</a></li>
+                <li role="presentation" id="social-sync-button"><a href="/api/billing/plans">Plans</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row list" id="social-sync">
+                <div class="col-md-6 left-align">
+                    <h2 class="dark-text">Payments</h2>
+                    <div class="colored-line-left">
+                    </div>
+                    <p>You currently have {{.cardsOnFile}} card on file.</p>
+                    <ul>
+                    {{range .userCards}}
+                        <li>{{.LastFour}} - {{.Brand}} {{if .IsDefault}}(default card){{end}}</li>
+                    {{end}}
+                    </ul>
+                    <p>Our credit card gateway is powered by <b><a href="https://stripe.com/" target="_stripe">Stripe</a></b>. We do not save your credit card information on our servers. Stripe does store and protects this information. They are a major credit card processor who specializes in handling this information.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="demo-container">
+                        <h3>Add a new payment method</h3>
+                        <div class="card-wrapper"></div>
+                        <div id="payment-errors" class="alert alert-danger" style="display: none;"></div>
+                        <div class="form-container active">
+                            <form id="payment-form" method="post" action="add-payment-method">
+                                {{ .csrfField }}
+                                <input type="hidden" id="code" name="code" />
+                                <input class="form-control" placeholder="Card number" type="text" name="number" id="number">
+                                <input class="form-control" placeholder="Full name" value="{{.userFullName}}" type="text" name="name" id="name">
+                                <input class="form-control" placeholder="MM/YY" type="text" name="expiry" id="expiry">
+                                <input class="form-control" placeholder="CVC" type="text" name="cvc" id="cvc">
+                                <button type="button" class="btn btn-primary" id="add-button">Add credit card</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://www.newsai.co/js/bootstrap.min.js"></script>
+    <script src="https://www.newsai.co/js/newsai.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script src="/static/js/card.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77059806-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+        Intercom('boot', {  
+            app_id: 'ur8dbk9e',  
+            email: '{{.userEmail}}'
+        });
+        new Card({
+            form: document.querySelector('form'),
+            container: '.card-wrapper'
+        });
+
+        Stripe.setPublishableKey('pk_live_BQgcXTDIgDIx8MllwCbQrASC');
+        function stripeResponseHandler(status, response) {
+          if (response.error) { // Problem!
+            $('#payment-errors').text(response.error.message);
+            $('#payment-errors').show();
+            $('#payment-form').find('button').prop('disabled', false); // Re-enable submission
+          } else { // Token was created!
+            // Get the token ID:
+            var token = response.id;
+            console.log(token);
+
+            // Insert the token into the form so it gets submitted to the server:
+            $('#payment-form').append($('<input type="hidden" name="stripeToken" />').val(token));
+
+            // Submit the form:
+            $('#payment-form').get(0).submit();
+          }
+        }
+
+        $(document).ready(function() {
+            var errorParameter = $.urlParam('error');
+            if (errorParameter) {
+                $('#payment-errors').text(unescape(errorParameter));
+                $('#payment-errors').show();
+            }
+            $("#add-button").click(function(){
+                // Hide error
+                $('#payment-errors').hide();
+                $('#payment-form').find('button').prop('disabled', true);
+
+                // Add stirpe credit card
+                var expiryDate = $('#expiry').val();
+                var expirySplit = expiryDate.split(" / ");
+
+                Stripe.card.createToken({
+                  name: $('#name').val(),
+                  number: $('#number').val(),
+                  cvc: $('#cvc').val(),
+                  exp_month: expirySplit[0],
+                  exp_year: expirySplit[1]
+                }, stripeResponseHandler);
+            }); 
+        });
+    </script>
+</body>
+</html>

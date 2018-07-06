@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="NewsAI is a news intelligence platform for public relations professionals to streamline the process of monitoring news, finding influencers, and building media lists for their clients.">
+    <meta name="keywords" content="Public Relations, News Intelligence, News, Artificial Intelligence, News Artificial Intelligence">
+    <meta name="author" content="NewsAI">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta property="og:url" content="https://newsai.co/" />
+    <meta property="og:title" content="NewsAI" />
+    <meta property="og:description" content="NewsAI is a news intelligence platform for public relations professionals to streamline the process of monitoring news, finding influencers, and building media lists for their clients. " />
+
+    <title>NewsAI - Confirmation</title>
+
+    <link rel="icon" href="https://www.newsai.co/images/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.newsai.co/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.newsai.co/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.newsai.co/images/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/elegant-icons/style.css">
+    <link rel="stylesheet" href="/static/assets/app-icons/styles.css">
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/newsai.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/confirmation.css">
+
+    <style type="text/css">
+        * {
+          border-radius: 0 !important;
+        }
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/ur8dbk9e';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+</head>
+
+<body>
+    <div id="top">
+        <a href="https://tabulae.newsai.co/">Go back to Tabulae</a>
+    </div>
+    <section class="app-brief" id="brief1">
+        <div class="col-md-12 text-center app-brief-pick">
+            <ul class="nav nav-pills center-pills">
+                <li role="presentation" id="social-sync-button"><a href="/api/billing">Billing home</a></li>
+                <li role="presentation" id="social-sync-button"><a href="/api/billing/payment-methods">Credit card</a></li>
+                <li role="presentation" id="social-sync-button"><a href="/api/billing/plans">Plans</a></li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row list" id="social-sync">
+                <div class="col-md-6 left-align">
+                    <h2 class="dark-text">Billing Summary</h2>
+                    <div class="colored-line-left">
+                    </div>
+                    {{if .missingCard }}
+                        <p>You have not added a credit card yet. Please visit the <a href="/api/billing/payment-methods">credit card</a> page and add one!</p>
+                    {{end}}
+                    <p>You are purchasing the <b>{{.plan}}</b> plan. You are being charged for a <b>{{if eq .duration "monthly" }}month{{end}}{{if eq .duration "annually" }}year{{end}}</b>.</p>
+                    <p>If you have a coupon please enter it below. It will be automatically applied to your checkout price.</p>
+                    <form id="coupon-form" method="post" action="check-coupon">
+                        <div id="coupon-valid" class="alert alert-success" style="display: none;"></div>
+                        <div id="coupon-errors" class="alert alert-danger" style="display: none;"></div>
+                        <input class="form-control" placeholder="Coupon Code" type="text" name="coupon" id="coupon" style=" float: left; width: 25%;">
+                        <input type="hidden" class="form-control" placeholder="Duration" type="text" name="duration" id="duration" value="{{.duration}}">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary" id="apply-button">Apply</button>
+                        </span>
+                    </form>
+                    <p>Upon checkout an invoice will be sent to your email.</p>
+                    <p>Subscriptions will automatically renew and the payment will be charged automatically to your listed credit card until you cancel your subscription.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="demo-container">
+                        <div class="form-container active">
+                            <form id="payment-form" method="post" action="receipt">
+                                {{ .csrfField }}
+                                <input type="hidden" id="code" name="code" />
+                                <input type="hidden" class="form-control" placeholder="Plan" type="text" name="plan" id="plan" value="{{.plan}}">
+                                <input type="hidden" class="form-control" placeholder="Duration" type="text" name="duration" id="duration" value="{{.duration}}">
+                                <input type="hidden" class="form-control" placeholder="Coupon" type="text" name="coupon" id="couponForm" value="">
+
+                                <p id="discount"></p>
+                                <p id="price"></p>
+
+                                <button type="submit" class="btn btn-primary" id="checkout-button">Check out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://www.newsai.co/js/bootstrap.min.js"></script>
+    <script src="https://www.newsai.co/js/newsai.js"></script>
+    <script src="/static/js/common.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-77059806-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+        Intercom('boot', {
+            app_id: 'ur8dbk9e',
+            email: '{{.userEmail}}'
+        });
+        Stripe.setPublishableKey('pk_live_BQgcXTDIgDIx8MllwCbQrASC');
+
+        $('#plan').attr('value', '{{.plan}}');
+        $('#duration').attr('value', '{{.duration}}');
+
+        function formatPrice(currentPrice, discount) {
+            var discountAmount = (discount.toFixed(3) / 100) * currentPrice;
+            currentPrice -= discountAmount;
+            document.getElementById("price").innerHTML = "Grand total: $" + currentPrice;
+        }
+
+        var price = parseFloat("{{.price}}");
+        formatPrice(price, 0.00);
+
+        var missingCard = ("{{.missingCard}}" === 'true');
+        if (missingCard) {
+            // Disable both buttons
+            document.getElementById("apply-button").disabled = true;
+            document.getElementById("checkout-button").disabled = true;
+        }
+
+        $(document).ready(function() {
+            var $form = $('#coupon-form');
+            $form.submit(function(){
+                // Reset details
+                $('#coupon-valid').hide();
+                $('#coupon-errors').hide();
+                $('#discount').hide();
+                formatPrice(price, 0.00);
+
+                // Post data
+                $.post($(this).attr('action'), $(this).serialize(), function(response){
+                    // If coupon was applied then show the new price & how much coupon helped
+                    $('#coupon-valid').text("Coupon was applied");
+                    $('#coupon-valid').show();
+                    if(response && response.PercentageOff) {
+                        percentageDiscount = response.PercentageOff;
+                        document.getElementById("discount").innerHTML = "Percentage discount: " + response.PercentageOff + "%";
+                        $('#discount').show();
+                        formatPrice(price, parseFloat(response.PercentageOff));
+
+                        var couponName = $('#coupon').val();
+                        $('#couponForm').attr('value', couponName);
+                    }
+                },'json').fail(function(jqXHR, textStatus, errorThrown) {
+                    // If fails then display error message & reset to normal price
+                    formatPrice(price, 0.00);
+                    if (jqXHR) {
+                        var apiResponse = JSON.parse(jqXHR.responseText);
+                        console.log(apiResponse);
+                        if (apiResponse && apiResponse.errors && apiResponse.errors.length > 0 && apiResponse.errors[0]) {
+                            $('#coupon-errors').text(apiResponse.errors[0].message);
+                            $('#coupon-errors').show();
+                        } else {
+                            $('#coupon-errors').text("Coupon was invalid or has expired");
+                            $('#coupon-errors').show();
+                        }
+                    } else {
+                        $('#coupon-errors').text("Coupon was invalid or has expired");
+                        $('#coupon-errors').show();
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
